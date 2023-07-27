@@ -1,7 +1,6 @@
 import React, { useState, createContext } from 'react';
 import { Restaurant, RestaurantContextType } from '../@types/RestaurantsReviews';
 import RestaurantFinder from '../apis/RestaurantFinder';
-//import { useNavigate } from 'react-router-dom';
 
 
 export const RestaurantsContext = createContext<RestaurantContextType | null>(null);

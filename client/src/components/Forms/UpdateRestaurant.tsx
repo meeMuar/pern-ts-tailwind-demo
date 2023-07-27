@@ -12,7 +12,7 @@ const UpdateRestaurant: React.FC = () => {
     const { id } = useParams();
     const { updateRestaurant } = useContext(RestaurantsContext) as RestaurantContextType;
 
-    const [formData, setFormData] = React.useState<Restaurant | {}>();
+    const [formData, setFormData] = React.useState<Restaurant | any>({});
 
     function handleForm(e: React.FormEvent<HTMLInputElement>) {
         setFormData({
@@ -35,7 +35,6 @@ const UpdateRestaurant: React.FC = () => {
             try {
                 const responseGet = await RestaurantFinder.get(`/${id}`);
                 const oldRestaurant = responseGet.data.data.restaurants[0];
-                //console.log(oldRestaurant);
                 const responseUpdate = await RestaurantFinder.put(`/${id}/update`, {
                     name: formData.name ? formData.name : oldRestaurant.name,
                     location: formData.location ? formData.location : oldRestaurant.location,
@@ -74,7 +73,7 @@ const UpdateRestaurant: React.FC = () => {
 
             <form action="" onSubmit={(e) => handleUpdate(e, formData)}>
                 <div className="flex flex-col gap-20 items-center justify-center">
-                    <h1 className="text-center text-4xl text-green-600">{formData && formData.name}</h1>
+                    <h1 className="text-center text-4xl text-green-600">{formData && formData['name']}</h1>
                     <div className="basis-1/3">
                         <input
                             id="name"

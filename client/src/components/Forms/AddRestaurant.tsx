@@ -2,16 +2,13 @@ import React, { useContext } from 'react'
 import { Restaurant, RestaurantContextType } from '../../@types/RestaurantsReviews'
 import { RestaurantsContext } from '../../context/RestaurantContext';
 import RestaurantFinder from '../../apis/RestaurantFinder';
-import { useParams } from 'react-router-dom';
-// type Props = {
-//     type: string;
-// }
+
 
 
 
 const AddRestaurant: React.FC = () => {
 
-    const { id } = useParams();
+
     const { restaurants, addRestaurant } = useContext(RestaurantsContext) as RestaurantContextType;
 
     const [formData, setFormData] = React.useState<Restaurant | {}>();

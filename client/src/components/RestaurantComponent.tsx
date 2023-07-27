@@ -2,8 +2,6 @@ import React from 'react'
 import { Restaurant } from '../@types/RestaurantsReviews';
 import { useNavigate } from 'react-router-dom';
 import StarRatingComponent from './StarRatingComponent';
-import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
-
 type Props = {
     restaurant: Restaurant;
     deleteRestaurant: (id: number) => void;

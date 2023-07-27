@@ -1,4 +1,4 @@
-//import React from 'react'
+
 import AddRestaurant from "../components/Forms/AddRestaurant"
 import Header from "../components/Header"
 import RestaurantList from "../components/RestaurantList"

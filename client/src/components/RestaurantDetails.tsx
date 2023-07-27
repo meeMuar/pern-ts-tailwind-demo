@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-//import StarRatingComponent from './StarRatingComponent';
 import { useParams } from 'react-router-dom';
 import RestaurantFinder from '../apis/RestaurantFinder';
 import { Review } from '../@types/RestaurantsReviews';
@@ -18,17 +17,16 @@ const RestaurantDetails = () => {
   }
 
   useEffect(() => {
-    async function DbCall() {
+    (async () => {
       try {
         const response = await RestaurantFinder.get(`/${id}/reviews`);
 
         saveReviews(response.data.reviews);
-        console.log(reviews);
       } catch (error) {
         console.log(error)
       }
     }
-    DbCall();
+    )()
 
   }, [])
 

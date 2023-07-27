@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+import { BsStarFill, BsStar } from 'react-icons/bs';
 
 type Props = {
     rating: number

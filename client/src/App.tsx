@@ -1,4 +1,4 @@
-import { Route, Routes,useParams } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './routes/Home.tsx'
 import RestaurantDetailPage from './routes/RestaurantDetailPage.tsx'
 import UpdatePage from './routes/UpdatePage.tsx'
@@ -10,7 +10,7 @@ function App() {
 
   return (
 
-    
+
     <RestaurantContextProvider>
 
 
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/restaurants/:id" element={<RestaurantDetailPage />} />
-          <Route path="/restaurants/:id/update" element={<UpdatePage />} /> 
+          <Route path="/restaurants/:id/update" element={<UpdatePage />} />
 
 
         </Routes>

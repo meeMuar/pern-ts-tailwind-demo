@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { Restaurant, RestaurantContextType, Review } from '../../@types/RestaurantsReviews'
+import React, { useState, useEffect } from 'react'
+import { Review } from '../../@types/RestaurantsReviews'
 import RestaurantFinder from '../../apis/RestaurantFinder';
 import { useParams, useNavigate } from 'react-router-dom';
-// import StarRatingComponent from './StarRatingComponent';
-import Select, { components, OptionProps } from "react-select";
+import Select, { components } from "react-select";
 import StarRatingComponent from '../StarRatingComponent';
 
 type RatingsType = {
@@ -24,7 +23,7 @@ const ratings: RatingsType[] = [
     { value: 5, label: "Great" },
 ]
 
-const Option = (props: OptionProps<RatingsType>) => {
+const Option = (props: any) => {
     return (
         <div
             style={{
@@ -109,7 +108,6 @@ const AddReview: React.FC = () => {
 
             <form action="" onSubmit={(e) => handleSubmit(e, formData)}>
                 <div className="flex flex-col gap-20 items-center justify-center">
-                    {/* <h1 className="text-center text-4xl text-green-600">{restaurantName}</h1> */}
                     <div className="basis-1/3">
                         <input
                             id="name"
@@ -150,7 +148,6 @@ const AddReview: React.FC = () => {
                         />
                     </div>
                     <button
-                        // disabled={formData === undefined ? true : false}
                         type="submit"
                         className=" rounded-sm border-1 w-48 h-12 bg-green-400 "
                     >

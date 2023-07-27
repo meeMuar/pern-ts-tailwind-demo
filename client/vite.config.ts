@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from 'tailwindcss'
 
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -14,4 +13,7 @@ export default defineConfig({
       plugins: [tailwindcss],
     },
   },
+  build: {
+    chunkSizeWarningLimit: 800
+  }
 });
