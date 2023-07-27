@@ -8,6 +8,7 @@ export interface Restaurant {
 
 }
 
+
 export interface Review {
     id: number,
     name: string,
