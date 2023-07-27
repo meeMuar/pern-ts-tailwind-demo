@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 const commonApiRoute = "/api/v1";
 const db = require("./db");
 
