@@ -14,10 +14,19 @@ app.use(cors());
 app.use(express.json());
 
 
+
 //************ RESTAURANTS API *****************/
 app.get(commonApiRoute + "/restaurants", async (req, res) => {
     try {
-        const getAllRestaraunts = (await db.query("SELECT * from restaurants")).rows;
+        const getAllRestaraunts = (await db.query(`SELECT 
+            restaurants.id,restaurants.name,restaurants.location,restaurants.price_range,
+            (
+            SELECT trunc(AVG(rating),1)
+            FROM reviews 
+            WHERE restaurants.id = reviews.restaurants_id
+        ) AS rating, 
+        (SELECT COUNT(id) from reviews where reviews.restaurants_id = restaurants.id) AS review_amount
+        FROM restaurants`)).rows;
         return res.status(200).json({
             status: "success",
             results: getAllRestaraunts.length,

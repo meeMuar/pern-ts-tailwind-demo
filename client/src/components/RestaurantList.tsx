@@ -18,6 +18,7 @@ const RestaurantList: React.FC = () => {
                 const restaurantData = response.data.data.restaurants;
 
                 saveRestaurants(restaurantData);
+                console.log(restaurantData)
             } catch (error: any) {
 
                 if (error.name === 'AbortError') {

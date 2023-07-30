@@ -34,7 +34,9 @@ const RestaurantComponent: React.FC<Props> = ({ restaurant, deleteRestaurant }) 
             <td>{restaurant.name}</td>
             <td>{restaurant.location}</td>
             <td>{"$".repeat(restaurant.price_range)}</td>
-            <td className='flex justify-center p-2'>{<StarRatingComponent rating={restaurant.rating} />}</td>
+            <td>
+                {<StarRatingComponent rating={restaurant.rating} review_amount={restaurant.review_amount} />}
+            </td>
             <td>
                 <button
                     onClick={(e) => routeToUpdate(e, restaurant.id)}

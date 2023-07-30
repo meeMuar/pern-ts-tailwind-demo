@@ -20,8 +20,9 @@ const RestaurantDetails = () => {
     (async () => {
       try {
         const response = await RestaurantFinder.get(`/${id}/reviews`);
+        const reviews = response.data.reviews;
 
-        saveReviews(response.data.reviews);
+        saveReviews(reviews.slice(-4));
       } catch (error) {
         console.log(error)
       }
@@ -36,7 +37,7 @@ const RestaurantDetails = () => {
 
       <h2 className=" p-5 text-center text-3xl text-green-400"> {reviews[0]?.restaurant_name}</h2>
       <div className='flex justify-center gap-24'>
-        {reviews.length > 0 ? reviews.map((newReview: Review) => (
+        {reviews.length > 0 ? reviews.slice(0).reverse().map((newReview: Review) => (
 
           <ReviewComponent key={newReview.id} review={newReview} />
 
