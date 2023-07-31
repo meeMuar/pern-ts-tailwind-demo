@@ -1,18 +1,20 @@
 import React, { useContext, useEffect } from 'react'
-import { Restaurant, RestaurantContextType } from '../../@types/RestaurantsReviews'
-import { RestaurantsContext } from '../../context/RestaurantContext';
-import RestaurantFinder from '../../apis/RestaurantFinder';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Restaurant, RestaurantContextType } from '../../@types/Restaurant'
+import { RestaurantsContext } from '../../context/RestaurantContext'
+import RestaurantFinder from '../../apis/RestaurantFinder'
+import { useParams, useNavigate } from 'react-router-dom'
+import { useErrorBoundary } from 'react-error-boundary'
 
 
 
 
 const UpdateRestaurant: React.FC = () => {
-    const navigation = useNavigate();
-    const { id } = useParams();
-    const { updateRestaurant } = useContext(RestaurantsContext) as RestaurantContextType;
+    const { showBoundary } = useErrorBoundary()
+    const navigation = useNavigate()
+    const { id } = useParams()
+    const { updateRestaurant } = useContext(RestaurantsContext) as RestaurantContextType
 
-    const [formData, setFormData] = React.useState<Restaurant | any>({});
+    const [formData, setFormData] = React.useState<Restaurant | any>({})
 
     function handleForm(e: React.FormEvent<HTMLInputElement>) {
         setFormData({
@@ -44,11 +46,12 @@ const UpdateRestaurant: React.FC = () => {
                 updateRestaurant({
                     id: Number(id),
                     ...formData
-                });
-                navigation('/');
+                })
+
+                navigation('/')
 
             } catch (error) {
-                console.log(error);
+                showBoundary(error)
             }
 
         })();
@@ -57,11 +60,11 @@ const UpdateRestaurant: React.FC = () => {
     useEffect(() => {
         (async () => {
             try {
-                const responseGet = await RestaurantFinder.get(`/${id}`);
-                const oldRestaurant = responseGet.data.data.restaurants[0];
+                const responseGet = await RestaurantFinder.get(`/${id}`)
+                const oldRestaurant = responseGet.data.data.restaurants[0]
                 setFormData(oldRestaurant)
             } catch (error) {
-
+                showBoundary(error)
             }
 
         })()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Restaurant } from '../@types/RestaurantsReviews';
+import { Restaurant } from '../@types/Restaurant';
 import { useNavigate } from 'react-router-dom';
 import StarRatingComponent from './StarRatingComponent';
 type Props = {

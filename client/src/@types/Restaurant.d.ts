@@ -8,16 +8,6 @@ export interface Restaurant {
 
 }
 
-
-export interface Review {
-    id: number,
-    name: string,
-    review: string,
-    rating: number,
-    restaurant_name: string,
-    restaurants_id: number
-}
-
 export type RestaurantContextType = {
     restaurants: Restaurant[];
     saveRestaurants: (restaurants: Restaurant[]) => void;

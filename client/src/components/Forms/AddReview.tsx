@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Review } from '../../@types/RestaurantsReviews'
+import { Review } from '../../@types/Review'
 import RestaurantFinder from '../../apis/RestaurantFinder';
 import { useParams, useNavigate } from 'react-router-dom';
 import Select, { components } from "react-select";
 import StarRatingComponent from '../StarRatingComponent';
+import { useErrorBoundary } from 'react-error-boundary';
 
 type RatingsType = {
     value: number,
@@ -41,6 +42,7 @@ const Option = (props: any) => {
 
 
 const AddReview: React.FC = () => {
+    const { showBoundary } = useErrorBoundary();
     const navigation = useNavigate();
     const { id } = useParams();
     const [formData, setFormData] = React.useState<Review | {}>();
@@ -66,25 +68,25 @@ const AddReview: React.FC = () => {
         });
         e.preventDefault();
 
-        async function AmongUs() {
+        async function ReviewDBPost() {
             try {
-                console.log('async started')
+
                 const responseUpdate = await RestaurantFinder.post(`/${id}/reviews`, {
                     name: formData.name,
                     rating: formData.rating,
                     review: formData.review
                 });
-                console.log(responseUpdate);
+                console.log(responseUpdate)
                 navigation('/');
 
             } catch (error) {
-                console.log(error);
+                showBoundary(error);
             }
 
         };
 
-        AmongUs();
-        console.log('async tried????')
+        ReviewDBPost();
+
     }
 
 
@@ -96,7 +98,7 @@ const AddReview: React.FC = () => {
                 const Restaurant = responseGet.data.data.restaurants[0];
                 setRestaurantName(Restaurant.name)
             } catch (error) {
-
+                showBoundary(error);
             }
 
         })()
@@ -115,6 +117,7 @@ const AddReview: React.FC = () => {
                             type="text"
                             className="w-96 h-10 min-h-fit rounded-sm border-2 border-neutral-200 p-1"
                             placeholder="Name"
+                            maxLength={18}
                         />
                     </div>
                     <div className="basis-1/3">
@@ -134,7 +137,7 @@ const AddReview: React.FC = () => {
                             isMulti={false}
                             id="rating"
                             onChange={(option: RatingsType | null) => {
-                                console.log(option)
+
                                 setSelectedOption({ selectedRating: option })
                                 setFormData({
                                     ...formData,

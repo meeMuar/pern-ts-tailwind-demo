@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 
 type Props = {

@@ -1,6 +1,7 @@
 import React, { useState, createContext } from 'react';
-import { Restaurant, RestaurantContextType } from '../@types/RestaurantsReviews';
+import { Restaurant, RestaurantContextType } from '../@types/Restaurant';
 import RestaurantFinder from '../apis/RestaurantFinder';
+import { useErrorBoundary } from 'react-error-boundary';
 
 
 export const RestaurantsContext = createContext<RestaurantContextType | null>(null);
@@ -10,6 +11,7 @@ type Props = {
 
 const RestaurantContextProvider: React.FC<Props> = ({ children }) => {
 
+    const {showBoundary} = useErrorBoundary()
 
 
     const [restaurants, setRestaurants] = useState<Restaurant[]>([
@@ -37,7 +39,7 @@ const RestaurantContextProvider: React.FC<Props> = ({ children }) => {
                 restaurant.location = updatedRestaurant.location;
                 restaurant.price_range = updatedRestaurant.price_range;
 
-                console.log("updated!")
+
             }
         })
     }
@@ -52,7 +54,7 @@ const RestaurantContextProvider: React.FC<Props> = ({ children }) => {
                     return restaurant.id !== id;
                 }))
             } catch (error) {
-                console.log(error)
+                showBoundary(error)
             }
 
         })();

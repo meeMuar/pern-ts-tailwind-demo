@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
-import { Restaurant, RestaurantContextType } from '../../@types/RestaurantsReviews'
+import { Restaurant, RestaurantContextType } from '../../@types/Restaurant'
 import { RestaurantsContext } from '../../context/RestaurantContext';
 import RestaurantFinder from '../../apis/RestaurantFinder';
-
+import { useErrorBoundary } from 'react-error-boundary';
 
 
 
 const AddRestaurant: React.FC = () => {
 
-
+    const { showBoundary } = useErrorBoundary();
     const { restaurants, addRestaurant } = useContext(RestaurantsContext) as RestaurantContextType;
 
     const [formData, setFormData] = React.useState<Restaurant | {}>();
@@ -45,7 +45,7 @@ const AddRestaurant: React.FC = () => {
                     ...formData
                 });
             } catch (error) {
-                console.log(error);
+                showBoundary(error);
             }
 
         })();
