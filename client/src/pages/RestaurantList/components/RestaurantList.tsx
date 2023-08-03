@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from 'react';
-import RestaurantFinder from '../apis/RestaurantFinder';
-import { RestaurantsContext } from '../context/RestaurantContext';
-import { RestaurantContextType, Restaurant } from '../@types/Restaurant';
+import RestaurantFinder from '../../../setup/apis/RestaurantFinder';
+import { RestaurantsContext } from '../../../setup/context/RestaurantContext';
+import { RestaurantContextType, Restaurant } from '../../../setup/@types/Restaurant';
 import RestaurantComponent from './RestaurantComponent';
 
 import { useErrorBoundary } from "react-error-boundary";
 
 const RestaurantList: React.FC = () => {
     const { restaurants, saveRestaurants, deleteRestaurant } = useContext(RestaurantsContext) as RestaurantContextType;
-    const {showBoundary } = useErrorBoundary();
+    const { showBoundary } = useErrorBoundary();
 
     useEffect(() => {
 
@@ -24,7 +24,7 @@ const RestaurantList: React.FC = () => {
                 if (error.name === 'AbortError') {
                     console.log('fetch aborted')
                 } else {
-                    showBoundary (error)
+                    showBoundary(error)
                 }
             }
         }

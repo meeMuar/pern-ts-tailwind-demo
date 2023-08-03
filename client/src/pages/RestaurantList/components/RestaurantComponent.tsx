@@ -1,7 +1,7 @@
 import React from 'react'
-import { Restaurant } from '../@types/Restaurant';
+import { Restaurant } from '../../../setup/@types/Restaurant';
 import { useNavigate } from 'react-router-dom';
-import StarRatingComponent from './StarRatingComponent';
+import StarRatingComponent from '../../../common/components/StarRatingComponent';
 type Props = {
     restaurant: Restaurant;
     deleteRestaurant: (id: number) => void;
@@ -35,7 +35,7 @@ const RestaurantComponent: React.FC<Props> = ({ restaurant, deleteRestaurant }) 
             <td>{restaurant.location}</td>
             <td>{"$".repeat(restaurant.price_range)}</td>
             <td>
-                {<StarRatingComponent rating={restaurant.rating} review_amount={restaurant.review_amount} />}
+                {<StarRatingComponent rating={restaurant.rating} review_amount={restaurant.review_amount} showCount={true} />}
             </td>
             <td>
                 <button

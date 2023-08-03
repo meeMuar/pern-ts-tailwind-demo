@@ -4,9 +4,10 @@ import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
 type Props = {
     rating: number
     review_amount?: number
+    showCount: boolean
 }
 
-const StarRatingComponent: React.FC<Props> = ({ rating, review_amount }) => {
+const StarRatingComponent: React.FC<Props> = ({ rating, review_amount, showCount }) => {
 
 
 
@@ -26,8 +27,10 @@ const StarRatingComponent: React.FC<Props> = ({ rating, review_amount }) => {
     }
     return (
         <div className='relative top-1 flex justify-center p-2'>
-            {stars}
-            {review_amount && <p className='relative bottom-1 left-1'> ({review_amount})</p>}
+            {stars.map((star, index) => {
+                return <h1 key={index}>{star}</h1>
+            })}
+            {showCount && <p className='relative bottom-1 left-1'> ({review_amount ? review_amount : "0"})</p>}
         </div>
     )
 }

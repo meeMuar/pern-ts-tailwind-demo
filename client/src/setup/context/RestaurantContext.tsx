@@ -11,7 +11,7 @@ type Props = {
 
 const RestaurantContextProvider: React.FC<Props> = ({ children }) => {
 
-    const {showBoundary} = useErrorBoundary()
+    const { showBoundary } = useErrorBoundary()
 
 
     const [restaurants, setRestaurants] = useState<Restaurant[]>([

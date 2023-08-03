@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Review } from '../../@types/Review'
-import RestaurantFinder from '../../apis/RestaurantFinder';
+import { Review } from '../../../setup/@types/Review'
+import RestaurantFinder from '../../../setup/apis/RestaurantFinder';
 import { useParams, useNavigate } from 'react-router-dom';
 import Select, { components } from "react-select";
-import StarRatingComponent from '../StarRatingComponent';
+import StarRatingComponent from '../../../common/components/StarRatingComponent';
 import { useErrorBoundary } from 'react-error-boundary';
+import TextInput from '../../../common/components/TextInput';
 
 type RatingsType = {
     value: number,
@@ -35,7 +36,7 @@ const Option = (props: any) => {
             }}
         >
             <components.Option {...props} />
-            <StarRatingComponent rating={props.value} />
+            <StarRatingComponent rating={props.value} showCount={false} />
         </div>
     );
 };
@@ -111,23 +112,10 @@ const AddReview: React.FC = () => {
             <form action="" onSubmit={(e) => handleSubmit(e, formData)}>
                 <div className="flex flex-col gap-20 items-center justify-center">
                     <div className="basis-1/3">
-                        <input
-                            id="name"
-                            onChange={handleForm}
-                            type="text"
-                            className="w-96 h-10 min-h-fit rounded-sm border-2 border-neutral-200 p-1"
-                            placeholder="Name"
-                            maxLength={18}
-                        />
+                        <TextInput id="name" handleInput={handleForm} placeholder="Name" maxLength={22} />
                     </div>
                     <div className="basis-1/3">
-                        <input
-                            id="review"
-                            onChange={handleForm}
-                            className="w-96 h-10 min-h-fit rounded-sm border-2 border-neutral-200 p-1"
-                            type="text"
-                            placeholder="Review"
-                        />
+                        <TextInput id="review" handleInput={handleForm} placeholder="Share your thoughts" maxLength={60} />
                     </div>
                     <div className="basis-1/6">
                         <Select

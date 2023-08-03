@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
-import Home from './routes/Home.tsx'
-import RestaurantDetailPage from './routes/RestaurantDetailPage.tsx'
-import UpdatePage from './routes/UpdatePage.tsx'
-import RestaurantContextProvider from './context/RestaurantContext.tsx'
+import Home from './setup/routes/RestaurantHomePage.tsx'
+import RestaurantDetailPage from './setup/routes/RestaurantDetailPage.tsx'
+import UpdatePage from './setup/routes/UpdatePage.tsx'
+import RestaurantContextProvider from './setup/context/RestaurantContext.tsx'
 import './index.css'
 
 function App() {

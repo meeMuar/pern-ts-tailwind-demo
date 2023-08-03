@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react'
-import { Restaurant, RestaurantContextType } from '../../@types/Restaurant'
-import { RestaurantsContext } from '../../context/RestaurantContext'
-import RestaurantFinder from '../../apis/RestaurantFinder'
+import { Restaurant, RestaurantContextType } from '../../../setup/@types/Restaurant'
+import { RestaurantsContext } from '../../../setup/context/RestaurantContext'
+import RestaurantFinder from '../../../setup/apis/RestaurantFinder'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useErrorBoundary } from 'react-error-boundary'
-
-
+import TextInput from '../../../common/components/TextInput'
+import Selection from '../../../common/components/Selection'
 
 
 const UpdateRestaurant: React.FC = () => {
@@ -78,37 +78,13 @@ const UpdateRestaurant: React.FC = () => {
                 <div className="flex flex-col gap-20 items-center justify-center">
                     <h1 className="text-center text-4xl text-green-600">{formData && formData['name']}</h1>
                     <div className="basis-1/3">
-                        <input
-                            id="name"
-                            onChange={handleForm}
-                            type="text"
-                            className="w-96 h-10 min-h-fit rounded-sm border-2 border-neutral-200 p-1"
-                            placeholder="Name"
-                        />
+                        <TextInput id="name" handleInput={handleForm} placeholder="Name" />
                     </div>
                     <div className="basis-1/3">
-                        <input
-                            id="location"
-                            onChange={handleForm}
-                            className="w-96 h-10 min-h-fit rounded-sm border-2 border-neutral-200 p-1"
-                            type="text"
-                            placeholder="Location"
-                        />
+                        <TextInput id="location" handleInput={handleForm} placeholder="Location" />
                     </div>
                     <div className="basis-1/6">
-                        <select
-
-                            id="price_range"
-                            onChange={handleSelection}
-                            defaultValue={'DEFAULT'}
-                            className="w-96 h-10 min-h-fit rounded-sm border-2 border-neutral-200 p-1"
-                        >
-                            <option value="DEFAULT" disabled>Price Range</option>
-                            <option value="1">$</option>
-                            <option value="2">$$</option>
-                            <option value="3">$$$</option>
-
-                        </select>
+                        <Selection id="price_range" handleInput={handleSelection} width={96} />
                     </div>
                     <button
                         disabled={formData === undefined ? true : false}

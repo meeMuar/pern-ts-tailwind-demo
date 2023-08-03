@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import RestaurantFinder from '../apis/RestaurantFinder';
-import { Review } from '../@types/Review';
+import RestaurantFinder from '../../../setup/apis/RestaurantFinder';
+import { Review } from '../../../setup/@types/Review';
 import ReviewComponent from './ReviewComponent';
-import AddReview from './Forms/AddReview';
+import AddReview from './AddReview';
 import { useErrorBoundary } from 'react-error-boundary';
 
 
-const RestaurantDetails = () => {
+const RestaurantDetails: React.FC = () => {
 
   const { showBoundary } = useErrorBoundary()
 
