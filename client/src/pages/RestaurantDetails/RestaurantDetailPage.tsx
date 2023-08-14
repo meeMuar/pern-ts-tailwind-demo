@@ -1,5 +1,5 @@
 import Header from "../../common/components/Header"
-import RestaurantDetails from '../../pages/RestaurantDetails/components/RestaurantDetails';
+import RestaurantDetails from './components/RestaurantDetails';
 
 const RestaurantDetailPage = () => {
     return (

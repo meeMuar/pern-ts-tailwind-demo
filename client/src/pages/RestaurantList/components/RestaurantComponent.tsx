@@ -40,7 +40,7 @@ const RestaurantComponent: React.FC<Props> = ({ restaurant, deleteRestaurant }) 
             <td>
                 <button
                     onClick={(e) => routeToUpdate(e, restaurant.id)}
-                    className=" bg-yellow-400"
+                    className=" bg-yellow-400 rounded-md p-1"
                 >
                     Update
                 </button>
@@ -48,7 +48,7 @@ const RestaurantComponent: React.FC<Props> = ({ restaurant, deleteRestaurant }) 
             <td>
                 <button
                     onClick={(e) => handleDelete(e, restaurant.id)}
-                    className="bg-red-400"
+                    className="bg-red-400 rounded-md p-1"
                 >
                     Delete
                 </button>

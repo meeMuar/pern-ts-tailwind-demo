@@ -1,6 +1,6 @@
 
 import Header from "../../common/components/Header"
-import UpdateRestaurant from "../../pages/UpdateRestaurant/components/UpdateRestaurant"
+import UpdateRestaurant from "./components/UpdateRestaurant"
 
 const UpdatePage = () => {
     return (

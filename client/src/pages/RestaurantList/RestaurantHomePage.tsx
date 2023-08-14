@@ -1,7 +1,7 @@
 
-import AddRestaurant from "../../pages/RestaurantList/components/AddRestaurant"
+import AddRestaurant from "./components/AddRestaurant"
 import Header from "../../common/components/Header"
-import RestaurantList from "../../pages/RestaurantList/components/RestaurantList"
+import RestaurantList from "./components/RestaurantList"
 
 const Home = () => {
     return (

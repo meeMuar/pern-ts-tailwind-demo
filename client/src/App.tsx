@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
-import Home from './setup/routes/RestaurantHomePage.tsx'
-import RestaurantDetailPage from './setup/routes/RestaurantDetailPage.tsx'
-import UpdatePage from './setup/routes/UpdatePage.tsx'
+import Home from './pages/RestaurantList/RestaurantHomePage.tsx'
+import RestaurantDetailPage from './pages/RestaurantDetails/RestaurantDetailPage.tsx'
+import UpdatePage from './pages/UpdateRestaurant/UpdatePage.tsx'
 import RestaurantContextProvider from './setup/context/RestaurantContext.tsx'
 import './index.css'
 
