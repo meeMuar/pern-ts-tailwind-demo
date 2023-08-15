@@ -27,10 +27,10 @@ jobs:
         cache: 'npm'
     - run: sudo git pull https://github.com/meeMuar/pern-ts-tailwind-demo.git
     - run: cd server
-    - run: sudo npm ci
+    - run: sudo npm install
     - run: cd ..
     - run: cd client
-    - run: sudo npm ci
+    - run: sudo npm install
     - run: sudo npm run build
     - run: cd ..
     - run: sudo systemctl restart nginx
