@@ -5,7 +5,7 @@ import RestaurantList from "./components/RestaurantList";
 const Home = () => {
   return (
     <div>
-      <Header title="Guestaurant Finder" />
+      <Header title="Guesstaurant Finder" />
       <AddRestaurant />
       <RestaurantList />
     </div>
