@@ -7,4 +7,4 @@ npm install
 npm run build
 cd ..
 sudo systemctl restart nginx
-sudo pm2 restart all
+sudo pm2 restart all || true
