@@ -1,5 +1,5 @@
 #!/bin/sh     
-sudo git pull 
+sudo git pull https://github.com/meeMuar/pern-ts-tailwind-demo.git
 cd server
 sudo npm install
 cd ..
