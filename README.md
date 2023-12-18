@@ -1,7 +1,7 @@
 # INTRODUCTION
 Restaurant gatherer is a simple website to store your experiences from the restaurants you have had a pleasure to visit.
 
-Demo available here: https://www.09123581.xyz/
+Demo available here: [https://www.09123581.xyz/](https://52.29.100.101/)
 
 # INSTALLATION
 1. Clone the repository.
