@@ -1,3 +1,13 @@
+CREATE TABLE restaurants(
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    location VARCHAR(50) NOT NULL,
+    price_range INT NOT NULL,
+    review_amount INT,
+    rating NUMERIC
+);
+
+
 CREATE TABLE reviews( 
     id BIGSERIAL NOT NULL PRIMARY KEY, 
     name VARCHAR(50),
